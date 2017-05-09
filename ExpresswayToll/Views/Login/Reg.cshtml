@@ -1,0 +1,51 @@
+﻿@model Model.t_User
+<form action="/User/Reg" id="reg" method="post">
+    @*@Html.BeginForm("Reg","User",FormMethod.Post,new {@class="register-form" }){
+        @Html.ValidationSummary(true)*@
+    <h3 class="font-green">注册</h3>
+    <p class="hint">请在下面输入您的信息：</p>
+    <div class="form-group">
+        @Html.TextBoxFor(c => Model.UserName, new { @class = "form-control placeholder-no-fix", placeholder = "姓名" })
+        @Html.ValidationMessageFor(c => Model.UserName)
+    </div>
+    <div class="form-group">
+        @Html.PasswordFor(c => Model.Password, new { @class = "form-control placeholder-no-fix", placeholder = "密码" })
+        @Html.ValidationMessageFor(c => Model.Password)
+    </div>
+    <div class="form-group">
+        <label id="alert" style="color:red ;display:none">两次密码输入不一致！！！</label>
+        <input type="password" id="repassword" name="repassword" class="form-control placeholder-no-fix" , placeholder="确认密码" />
+    </div>
+    <div class="form-group">
+
+        @*<input class="form-control placeholder-no-fix form_date" id="mask_date1" type="text" />*@
+        @*<input name="Birthday" size="16" type="text" value="2012 06 15" readonly class="form-control placeholder-no-fix form_date" data-date-format="yyyy MM dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd" />*@
+        <div class="input-group date date-picker margin-bottom-5" data-date-format="yyyy/mm/dd">
+            <input type="text" class="form-control form-filter" readonly name="Birthday" placeholder="生日" value="1994-1-1">
+            <span class="input-group-btn"> 
+                <button class="btn default" style="height:43px" type="button">
+                    <i class="fa fa-calendar bg" ></i>
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.DropDownList("Gender",ViewBag.GenderList as IEnumerable<SelectListItem>,new { @class= "form-control placeholder-no-fix" })
+
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(c => Model.Phone, new { @class = "form-control placeholder-no-fix", placeholder = "联系方式" })
+        @Html.ValidationMessageFor(c => c.Phone)
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(c => Model.Emain, new { @class = "form-control placeholder-no-fix", placeholder = "E-mail" })
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(c => Model.QQ, new { @class = "form-control placeholder-no-fix", placeholder = "QQ号码" })
+    </div>
+    <div class="form-actions">
+        <button type="button" id="register-back-btn" class="btn green btn-outline">返回</button>
+        <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">注册</button>
+    </div>
+    @*}*@
+</form>

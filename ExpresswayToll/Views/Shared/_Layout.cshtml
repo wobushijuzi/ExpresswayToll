@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @*<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">*@
+    <title>高速公路收费系统</title>
+    @*<meta http-equiv="X-UA-Compatible" content="IE=edge">*@
+    @*<meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="Preview page of Metronic Admin Theme #1 for statistics, charts, recent events and reports" name="description" />*@
+    @*<meta content="" name="author" />*@
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    @*//"~/Content/assets/global/plugins/font-awesome/css/font-awesome.min.css",
+    //"~/Content/assets/global/plugins/simple-line-icons/simple-line-icons.min.css",
+    //"~/Content/assets/global/plugins/bootstrap/css/bootstrap.min.css",
+    //"~/Content/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css",
+
+    //"~/Content/assets/global/plugins/datatables/datatables.min.css",
+    //"~/Content/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css",
+
+    //"~/Content/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css",
+    //"~/Content/assets/global/plugins/morris/morris.css",
+    //"~/Content/assets/global/plugins/fullcalendar/fullcalendar.min.css",
+    //"~/Content/assets/global/plugins/jqvmap/jqvmap/jqvmap.css",
+    //"~/Content/assets/global/css/components.min.css",
+    //"~/Content/assets/global/css/plugins.min.css",
+    //"~/Content/assets/layouts/layout/css/layout.min.css",
+    //"~/Content/assets/layouts/layout/css/themes/darkblue.min.css",
+    //"~/Content/assets/layouts/layout/css/custom.min.css")); 全局CSS样式开始*@ 
+    @Styles.Render("~/Content/css/global")
+    <!-- 全局CSS样式结束 -->
+    <!-- 整体布局CSS样式开始 -->
+    @Styles.Render("~/Content/css/layout")
+    <!-- 整体布局CSS样式结束 -->
+
+    @Styles.Render("~/Content/css/table")
+    <link rel="shortcut icon" href="favicon.ico" />
+    @RenderSection("css", false)
+</head>
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+    <div class="page-wrapper">
+        <div class="page-header navbar navbar-fixed-top">
+            <div class="page-header-inner ">
+                <div class="page-logo">
+                    <img src="~/Content/assets/layouts/layout/img/logo.png" alt="logo" class="logo-default" />
+                    <div class="menu-toggler sidebar-toggler">
+                        <span></span>
+                    </div>
+                </div>
+                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span></span>
+                </a>
+                <div class="top-menu">
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown dropdown-user">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <span class="username username-hide-on-mobile"> 欢迎您：@HttpUtility.UrlDecode(Request.Cookies["UserName"].Value, System.Text.Encoding.GetEncoding("UTF-8")) </span>
+                            </a>
+
+                        </li>
+                        <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <i class="icon-envelope-open"></i>
+                                <span class="badge badge-default"> 4 </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="external">
+                                    <h3>
+                                        You have
+                                        <span class="bold">7 New</span> Messages
+                                    </h3>
+                                    <a href="app_inbox.html">view all</a>
+                                </li>
+                                <li>
+                                    <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
+                                        <li>
+                                            <a href="#">
+                                                <span class="photo">
+                                                    <img src="~/Content/assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt="">
+                                                </span>
+                                                <span class="subject">
+                                                    <span class="from"> Lisa Wong </span>
+                                                    <span class="time">Just Now </span>
+                                                </span>
+                                                <span class="message"> Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="photo">
+                                                    <img src="~/Content/assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt="">
+                                                </span>
+                                                <span class="subject">
+                                                    <span class="from"> Richard Doe </span>
+                                                    <span class="time">16 mins </span>
+                                                </span>
+                                                <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="photo">
+                                                    <img src="~/Content/assets/layouts/layout3/img/avatar1.jpg" class="img-circle" alt="">
+                                                </span>
+                                                <span class="subject">
+                                                    <span class="from"> Bob Nilson </span>
+                                                    <span class="time">2 hrs </span>
+                                                </span>
+                                                <span class="message"> Vivamus sed nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="photo">
+                                                    <img src="~/Content/assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt="">
+                                                </span>
+                                                <span class="subject">
+                                                    <span class="from"> Lisa Wong </span>
+                                                    <span class="time">40 mins </span>
+                                                </span>
+                                                <span class="message"> Vivamus sed auctor 40% nibh congue nibh... </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="photo">
+                                                    <img src="~/Content/assets/layouts/layout3/img/avatar3.jpg" class="img-circle" alt="">
+                                                </span>
+                                                <span class="subject">
+                                                    <span class="from"> Richard Doe </span>
+                                                    <span class="time">46 mins </span>
+                                                </span>
+                                                <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown dropdown-quick-sidebar-toggler">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="icon-logout"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+        <div class="page-container">
+            <div class="page-sidebar-wrapper">
+
+                @{ Html.RenderAction("Index", "Menu");}
+            </div>
+            <div class="page-content-wrapper">
+                <div class="page-content">
+                    @RenderBody()
+                </div>
+            </div>
+            <a href="" class="page-quick-sidebar-toggler">
+                <i class="icon-login"></i>
+            </a>
+
+        </div>
+        <div class="page-footer">
+            <div class="page-footer-inner">
+                2017 &copy;  Graduation Design 宋森燏
+            </div>
+        </div>
+    </div>
+    <nav class="quick-nav">
+        <a class="quick-nav-trigger" href="#0">
+            <span aria-hidden="true"></span>
+        </a>
+        <ul>
+            <li>
+                <a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" target="_blank" class="active">
+                    <span>Purchase Metronic</span>
+                    <i class="icon-basket"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/reviews/4021469?ref=keenthemes" target="_blank">
+                    <span>Customer Reviews</span>
+                    <i class="icon-users"></i>
+                </a>
+            </li>
+            <li>
+                <a href="http://keenthemes.com/showcast/" target="_blank">
+                    <span>Showcase</span>
+                    <i class="icon-user"></i>
+                </a>
+            </li>
+            <li>
+                <a href="http://keenthemes.com/metronic-theme/changelog/" target="_blank">
+                    <span>Changelog</span>
+                    <i class="icon-graph"></i>
+                </a>
+            </li>
+        </ul>
+        <span aria-hidden="true" class="quick-nav-bg"></span>
+    </nav>
+    <div class="quick-nav-overlay"></div>
+    <!-- 全局JS脚本开始 -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/platform/global")
+    @Scripts.Render("~/bundles/platform/layout")
+    <!-- 全局JS脚本结束 -->
+
+    @Scripts.Render("~/bundles/platform/table")
+    <script src="~/Content/assets/pages/scripts/table-datatables-managed.js" charset="gbk"></script>
+
+    @*<script src="~/Content/assets/global/scripts/datatable.js" type="text/javascript"></script>
+    <script src="~/Content/assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
+    <script src="~/Content/assets/pages/scripts/table-datatables-managed.js" charset="gbk"></script>*@
+</body>
+</html>

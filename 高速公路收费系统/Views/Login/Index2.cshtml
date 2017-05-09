@@ -1,0 +1,90 @@
+﻿@model Model.t_User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/CSS/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Login/css/login-5.min.css" rel="stylesheet" />
+    <link href="~/Content/Login/css/select2-bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Login/css/select2.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/JS/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="~/JS/bootstrap.min.js"></script>
+</head>
+<body style="background-color:#293846">
+
+    <div class="user-login-5">
+        <div class="row bs-reset">
+            <div class="col-md-4 bs-reset">
+
+            </div>
+            <div class="col-md-4 login-container bs-reset">
+                <div class="login-content" style="margin-top:150px">
+                    <h1 class="text-center" style="color:white">高速公路收费系统</h1>
+                    @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @class = "login-form" }))
+                    {
+
+                        <div class="row ">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <i class="fa fa-user"></i>
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control placeholder-no-fix", placeholder = "用户名" })
+                                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <i class="fa fa-lock"></i>
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control form-control-solid placeholder-no-fix", placeholder = "密码" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-xs-9">
+                                            <input type="text" name="ValidateCode" id="ValidateCode" class="form-control form-control-solid placeholder-no-fix" , placeholder="验证码" />
+                                            @*@Html.TextBoxFor(m => m.ValidateCode, new { @class = "form-control form-control-solid placeholder-no-fix", placeholder = "验证码" })*@
+                                        </div>
+                                        <img style="cursor: pointer; vertical-align:middle" src="@Url.Action("VerifyImage", "Login")" id="VerifyImage" title="看不清？点击换一个" onclick="javascript:document.getElementById('VerifyImage').src='@Url.Action("VerifyImage", "Login")?r='+Math.random();return false;">
+                                        <div>@Html.ValidationMessage("error") </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="rem-password">
+                                    <label class="rememberme mt-checkbox mt-checkbox-outline">
+                                        <input type="checkbox" name="RememberState" id="RememberState" />记住我
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 text-right">
+                                <div class="forgot-password">
+                                    <a href="javascript:;" id="forget-password" class="forget-password">忘记密码？</a>&nbsp;
+                                    <a href="javascript:;" id="forget-password" class="forget-password">注册</a>
+                                </div>
+                                <button class="btn" style="color:black" type="submit">登录</button>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+                <div class="login-footer">
+                    <div class="row bs-reset">
+                        <div class="login-copyright text-center">
+                            <p>Copyright &copy; 宋森燏 2017</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

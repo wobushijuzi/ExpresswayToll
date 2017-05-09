@@ -1,0 +1,46 @@
+﻿@model Model.t_User
+<div class="modal-body">
+    <div class="col-md-4"></div>
+    <div class="">
+        <h3>
+            <p>
+                <span>编号：</span>
+                <span> @Model.id </span>
+            </p>
+            <p>
+                <span>@Html.DisplayNameFor(c => c.UserName)</span>
+                <span>@Model.UserName</span>
+            </p>
+            <p>
+                <span>@Html.DisplayNameFor(c => c.Gender):</span>
+                <span>@Model.Gender</span>
+            </p>
+            <p>
+                <span>@Html.DisplayNameFor(c => c.Birthday):</span>
+                <span>@Model.Birthday.ToShortDateString()</span>
+            </p>
+            <p>
+                <span>@Html.DisplayNameFor(c => c.Phone):</span>
+                <span>@Model.Phone</span>
+            </p>
+            <p>
+                <span>@Html.DisplayNameFor(c => c.QQ):</span>
+                <span>@Model.QQ</span>
+            </p>
+            <p>
+                <span>@Html.DisplayNameFor(c => c.Emain)：</span>
+                <span>@Model.Emain</span>
+            </p>
+            <p>
+                <span>@Html.DisplayNameFor(c => c.Disadle)：</span>
+                <span>@(Model.Disadle == 0 ? "在职" : "停用")</span>
+            </p>
+        </h3>
+        
+    </div>
+</div>
+<div class="modal-footer">
+    @*<button type="button" class="btn btn-default" data- dismiss="modal">关闭</button>*@
+    <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "User", new { id =@Model.id })'">编辑</button>
+    <button type="submit" class="btn btn-primary" onclick="location.href ='@Url.Action("Del", "User", new { id =@Model.id })'">删除</button>
+</div >

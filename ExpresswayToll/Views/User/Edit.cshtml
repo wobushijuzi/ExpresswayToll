@@ -1,0 +1,126 @@
+﻿@model Model.t_User
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-equalizer font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase">编辑员工 </span>
+            @*<span class="caption-helper">form actions without bg color</span>*@
+        </div>
+        @*<div class="actions">
+            <div class="portlet-input input-inline input-small">
+                <div class="input-icon right">
+                    <i class="icon-magnifier"></i>
+                    <input type="text" class="form-control input-circle" placeholder="search...">
+                </div>
+            </div>
+        </div>*@
+    </div>
+    <div class="portlet-body form">
+        <form action="/User/Edit" method="post" class="form-horizontal">
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">姓名</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            <input type="hidden" name="id" value="@Model.id" />
+                            <input type="hidden" name="CreateTime" value="@Model.CreateTime" />
+                            <input type="text" class="form-control" placeholder="姓名" name="UserName" value="@Model.UserName">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">密码</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            <input type="text" class="form-control" placeholder="密码" name="Password">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">生日</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            <input type="text" class="form-control" placeholder="性别" name="Birthday" value="@Model.Birthday.ToShortDateString()">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">性别</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            <input type="text" class="form-control" placeholder="性别" name="Gender" value="@Model.Gender">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">联系方式</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            <input type="text" class="form-control" placeholder="联系方式"  value="@Model.Phone" name="Phone">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">QQ</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            <input type="text" class="form-control" placeholder="QQ" value="@Model.QQ" name="QQ">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">E-Mail</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            <input type="text" class="form-control" placeholder="E-Mail" value="@Model.Emain" name="emain">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">是否停用</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            <input type="text" class="form-control" placeholder="是否停用" name="Disadle">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Left Icon</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            <input type="text" class="form-control" placeholder="Left icon">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group last">
+                    <label class="col-md-3 control-label">Static Control</label>
+                    <div class="col-md-4">
+                        <p class="form-control-static"> email@example.com </p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button type="submit" class="btn green">提交</button>
+                        <button type="button" class="btn default" onclick="location.href='@Url.Action("Index", "User")'">取消</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

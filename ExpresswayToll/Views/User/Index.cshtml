@@ -1,0 +1,114 @@
+﻿@using PagedList
+@using PagedList.Mvc
+
+@model IEnumerable<Model.t_User>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var data = Model as IPagedList<Model.t_User>;
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-dark">
+            <i class="icon-settings font-dark"></i>
+            <span class="caption-subject bold uppercase">员工列表</span>
+        </div>
+        <div class="tools">
+            <button  class="btn green">添加新员工</button>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <table class="table table-striped table-bordered table-hover" id="UserList">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th> 姓名 </th>
+                    <th> 性别 </th>
+                    <th> 生日 </th>
+                    <th> 联系方式 </th>
+                    <th> QQ </th>
+                    <th>操作</th>
+
+                </tr>
+            </thead> 
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.id</td>
+                        <td data-toggle="modal" data-target="#Det" onclick="Det(@item.id)" >@item.UserName</td>
+                        <td>@item.Gender</td>
+                        <td>@item.Birthday.ToShortDateString()</td>
+                        <td>@item.Phone</td>
+                        <td>@item.QQ</td>
+                        <td><input type="button" value="编辑" class="btn green" onclick="location.href='@Url.Action("Edit", "User", new { id = item.id })'" />
+                            <input type="button" value="详情" class="btn green" data-toggle="modal" data-target="#Det" onclick="Det(@item.id)" />
+                            <input type="button" value="删除" class="btn green" data-toggle="modal" data-target="#myModal" onclick="Del(@item.id,'@item.UserName')"/></td>
+                    </tr>                    
+                }
+            </tbody>
+        </table>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            删除员工
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="te"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <div id="foot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="Det" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content col-md-10">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            员工详情
+                        </h4>
+                    </div>
+                    <div id="show">
+                        @{Html.RenderAction("Det");}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function Del(id,userName) {
+        //$("#modalbody").html="是否删除该用户名为" + e + "的用户";
+        document.getElementById("te").innerHTML = "是否删除该用户名为" + userName + "的用户";
+        var form = "<form action='/User/Del' method= 'post' >";
+        form += "<input type='hidden' value='"+id+"' name='id' />"  
+        form += "<button type=''button' class='btn btn-default' data- dismiss='modal' >关闭</button>";
+        form +="<button type= 'submit' class='btn btn-primary' >删除</button>"
+        form += "</form>"
+        $("#foot").html(form);
+        //alert(e)
+    }
+    function Det(e) {
+        $.ajax({
+            type: "POST",
+            url: "/User/Det",
+            data: { id:e},
+            success: function (msg) {
+                //$("#show").html(msg);
+            }
+        });
+
+    }
+</script>
