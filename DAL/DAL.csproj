@@ -54,9 +54,14 @@
     <Compile Include="ChargeDAL.cs" />
     <Compile Include="ChargeStandardDAL.cs" />
     <Compile Include="DistanceDAL.cs" />
+    <Compile Include="DutyDAL.cs" />
+    <Compile Include="IllegalDAL.cs" />
     <Compile Include="MenuDAL.cs" />
+    <Compile Include="NewsDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoadDAL.cs" />
     <Compile Include="RoleDAL.cs" />
+    <Compile Include="TollGateDAL.cs" />
     <Compile Include="UserDAL.cs" />
   </ItemGroup>
   <ItemGroup>
