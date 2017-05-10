@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Model.t_Card>
+﻿@model IEnumerable<Model.t_CarType>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,10 +8,10 @@
     <div class="portlet-title">
         <div class="caption font-dark">
             <i class="icon-settings font-dark"></i>
-            <span class="caption-subject bold uppercase">过路卡列表</span>
+            <span class="caption-subject bold uppercase">车辆类型列表</span>
         </div>
         <div class="tools">
-            <button class="btn green" onclick="location.href='@Url.Action("Add", "Card")'" >添加新卡</button>
+            <button class="btn green" onclick="location.href='@Url.Action("Add")'">添加车辆类型</button>
         </div>
     </div>
     <div class="portlet-body">
@@ -19,7 +19,7 @@
             <thead>
                 <tr>
                     <th class="col-md-4">编号</th>
-                    <th class="col-md-4">卡号</th>
+                    <th class="col-md-4">车辆类型</th>
                     <th class="col-md-4">操作</th>
                 </tr>
             </thead>
@@ -28,11 +28,11 @@
                 {
                     <tr>
                         <td>@item.Id</td>
-                        <td>@item.CardId</td>
+                        <td>@item.CarType</td>
                         <td>
                             @*<input type="button" value="编辑" class="btn green" onclick="location.href='@Url.Action("Edit", "Card", new { Id = item.Id })'" />*@
                             <input type="button" value="详情" class="btn green" data-toggle="modal" data-target="#Det" onclick="Det(@item.Id)" />
-                            <input type="button" value="删除" class="btn green" data-toggle="modal" data-target="#myModal" onclick="Del(@item.Id,'@item.CardId')" />
+                            <input type="button" value="删除" class="btn green" data-toggle="modal" data-target="#myModal" onclick="Del(@item.Id,'@item.CarType')" />
                         </td>
                     </tr>
                 }
@@ -81,9 +81,9 @@
     function Del(id,userName) {
         //$("#modalbody").html="是否删除该用户名为" + e + "的用户";
         document.getElementById("te").innerHTML = "是否删除该编号为" + userName + "的过路卡";
-        var form = "<form action='/Card/Del' method= 'post' >";
+        var form = "<form action='/CarType/Del' method= 'post' >";
         form += "<input type='hidden' value='"+id+"' name='id' />"
-        form += "<button type=''button' class='btn btn-default' data-dismiss='modal' >关闭</button>";
+        form += "<button type='button' class='btn btn-default' data-dismiss='modal' >关闭</button>";
         form +="<button type= 'submit' class='btn btn-primary' >删除</button>"
         form += "</form>"
         $("#foot").html(form);
@@ -92,7 +92,7 @@
     function Det(e) {
         $.ajax({
             type: "POST",
-            url: "/Card/Det",
+            url: "/CarType/Det",
             data: { id:e},
             success: function (msg) {
                 //$("#show").html(msg);

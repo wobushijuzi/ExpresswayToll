@@ -41,8 +41,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CardBLL.cs" />
+    <Compile Include="CarTypeBLL.cs" />
+    <Compile Include="ChargeBLL.cs" />
+    <Compile Include="ChargeStandardBLL.cs" />
+    <Compile Include="DistanceBLL.cs" />
+    <Compile Include="DutyBLL.cs" />
+    <Compile Include="IllegalBLL.cs" />
     <Compile Include="MenuBLL.cs" />
+    <Compile Include="NewsBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoadBLL.cs" />
+    <Compile Include="TollGateBLL.cs" />
     <Compile Include="UserBLL.cs" />
   </ItemGroup>
   <ItemGroup>

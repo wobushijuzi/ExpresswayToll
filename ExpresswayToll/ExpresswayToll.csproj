@@ -158,9 +158,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CardController.cs" />
+    <Compile Include="Controllers\CarTypeController.cs" />
+    <Compile Include="Controllers\ChargeController.cs" />
+    <Compile Include="Controllers\ChargeStandardController.cs" />
+    <Compile Include="Controllers\DistanceController.cs" />
+    <Compile Include="Controllers\DutyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IllegalController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\RoadController.cs" />
+    <Compile Include="Controllers\TollGateController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -6090,6 +6099,19 @@
     <Content Include="Views\Card\Index.cshtml" />
     <Content Include="Views\Card\Det.cshtml" />
     <Content Include="Views\Card\Add.cshtml" />
+    <Content Include="Views\CarType\Index.cshtml" />
+    <Content Include="Views\CarType\Add.cshtml" />
+    <Content Include="Views\CarType\Det.cshtml" />
+    <Content Include="Views\ChargeStandard\Index.cshtml" />
+    <Content Include="Views\ChargeStandard\Add.cshtml" />
+    <Content Include="Views\ChargeStandard\Det.cshtml" />
+    <Content Include="Views\ChargeStandard\Edit.cshtml" />
+    <Content Include="Views\Distance\Index.cshtml" />
+    <Content Include="Views\Distance\Add.cshtml" />
+    <Content Include="Views\Distance\Det.cshtml" />
+    <Content Include="Views\Road\Index.cshtml" />
+    <Content Include="Views\Road\Add.cshtml" />
+    <Content Include="Views\Road\Det.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -6107,6 +6129,11 @@
     <Folder Include="Content\assets\apps\img\" />
     <Folder Include="Content\assets\global\plugins\angularjs\plugins\angular-file-upload\uploads\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Charge\" />
+    <Folder Include="Views\Duty\" />
+    <Folder Include="Views\Illegal\" />
+    <Folder Include="Views\News\" />
+    <Folder Include="Views\TollGate\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

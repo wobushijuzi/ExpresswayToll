@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Model.t_Card>
+﻿@model IEnumerable<Model.t_Distance>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,31 +8,37 @@
     <div class="portlet-title">
         <div class="caption font-dark">
             <i class="icon-settings font-dark"></i>
-            <span class="caption-subject bold uppercase">过路卡列表</span>
+            <span class="caption-subject bold uppercase">距离列表</span>
         </div>
         <div class="tools">
-            <button class="btn green" onclick="location.href='@Url.Action("Add", "Card")'" >添加新卡</button>
+            <button class="btn green" onclick="location.href='@Url.Action("Add")'">添加新收费标准</button>
         </div>
     </div>
     <div class="portlet-body">
         <table class="table table-striped table-bordered table-hover" id="List">
             <thead>
                 <tr>
-                    <th class="col-md-4">编号</th>
-                    <th class="col-md-4">卡号</th>
-                    <th class="col-md-4">操作</th>
+                    <th>编号</th>
+                    <th>开始节点</th>
+                    <th>结束节点</th>
+                    <th>距离</th>
+                    <th>备注</th>
+                    <th>操作</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td>@item.Id</td>
-                        <td>@item.CardId</td>
+                        <td>@item.id</td>
+                        <td>@item.Start </td>
+                        <td>@item.End</td>
+                        <td>@item.Distance/km</td>
+                        <td>@item.Remark</td>
                         <td>
                             @*<input type="button" value="编辑" class="btn green" onclick="location.href='@Url.Action("Edit", "Card", new { Id = item.Id })'" />*@
-                            <input type="button" value="详情" class="btn green" data-toggle="modal" data-target="#Det" onclick="Det(@item.Id)" />
-                            <input type="button" value="删除" class="btn green" data-toggle="modal" data-target="#myModal" onclick="Del(@item.Id,'@item.CardId')" />
+                            <input type="button" value="详情" class="btn green" data-toggle="modal" data-target="#Det" onclick="Det(@item.id)" />
+                            <input type="button" value="删除" class="btn green" data-toggle="modal" data-target="#myModal" onclick="Del(@item.id,'@item.Start','@item.End')" />
                         </td>
                     </tr>
                 }
@@ -46,7 +52,7 @@
                             &times;
                         </button>
                         <h4 class="modal-title" id="myModalLabel">
-                            删除过路卡
+                            删除距离
                         </h4>
                     </div>
                     <div class="modal-body">
@@ -66,7 +72,7 @@
                             &times;
                         </button>
                         <h4 class="modal-title" id="myModalLabel">
-                            过路卡详情
+                            距离详情
                         </h4>
                     </div>
                     <div id="show">
@@ -78,10 +84,9 @@
     </div>
 </div>
 <script>
-    function Del(id,userName) {
-        //$("#modalbody").html="是否删除该用户名为" + e + "的用户";
-        document.getElementById("te").innerHTML = "是否删除该编号为" + userName + "的过路卡";
-        var form = "<form action='/Card/Del' method= 'post' >";
+    function Del(id,start,end) {
+        document.getElementById("te").innerHTML = "是否删除该" + start + "-" + end ;
+        var form = "<form action='Del' method= 'post' >";
         form += "<input type='hidden' value='"+id+"' name='id' />"
         form += "<button type=''button' class='btn btn-default' data-dismiss='modal' >关闭</button>";
         form +="<button type= 'submit' class='btn btn-primary' >删除</button>"
@@ -92,7 +97,7 @@
     function Det(e) {
         $.ajax({
             type: "POST",
-            url: "/Card/Det",
+            url: "Det",
             data: { id:e},
             success: function (msg) {
                 //$("#show").html(msg);

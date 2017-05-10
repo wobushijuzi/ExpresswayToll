@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Model.t_Card>
+﻿@model IEnumerable<Model.t_ChargeStandard>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,16 +11,19 @@
             <span class="caption-subject bold uppercase">过路卡列表</span>
         </div>
         <div class="tools">
-            <button class="btn green" onclick="location.href='@Url.Action("Add", "Card")'" >添加新卡</button>
+            <button class="btn green" onclick="location.href='@Url.Action("Add")'">添加新收费标准</button>
         </div>
     </div>
     <div class="portlet-body">
         <table class="table table-striped table-bordered table-hover" id="List">
             <thead>
                 <tr>
-                    <th class="col-md-4">编号</th>
-                    <th class="col-md-4">卡号</th>
-                    <th class="col-md-4">操作</th>
+                    <th>编号</th>
+                    <th>车辆类型</th>
+                    <th>重量范围</th>
+                    <th>收费比例</th>
+                    <th>备注</th>
+                    <th>操作</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,11 +31,14 @@
                 {
                     <tr>
                         <td>@item.Id</td>
-                        <td>@item.CardId</td>
+                        <td>@item.CarType </td>
+                        <td>@item.WeightMin——@item.WeightMax</td>
+                        <td>@item.Ratio/km</td>
+                        <td>@item.Remark</td>
                         <td>
                             @*<input type="button" value="编辑" class="btn green" onclick="location.href='@Url.Action("Edit", "Card", new { Id = item.Id })'" />*@
                             <input type="button" value="详情" class="btn green" data-toggle="modal" data-target="#Det" onclick="Det(@item.Id)" />
-                            <input type="button" value="删除" class="btn green" data-toggle="modal" data-target="#myModal" onclick="Del(@item.Id,'@item.CardId')" />
+                            <input type="button" value="删除" class="btn green" data-toggle="modal" data-target="#myModal" onclick="Del(@item.Id,'@item.CarType')" />
                         </td>
                     </tr>
                 }
@@ -46,7 +52,7 @@
                             &times;
                         </button>
                         <h4 class="modal-title" id="myModalLabel">
-                            删除过路卡
+                            删除收费标准
                         </h4>
                     </div>
                     <div class="modal-body">
@@ -66,7 +72,7 @@
                             &times;
                         </button>
                         <h4 class="modal-title" id="myModalLabel">
-                            过路卡详情
+                            收费标准详情
                         </h4>
                     </div>
                     <div id="show">
