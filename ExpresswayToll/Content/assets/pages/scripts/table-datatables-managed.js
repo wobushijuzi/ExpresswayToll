@@ -1,6 +1,6 @@
 var TableDatatablesManaged = function () {
     var initTable1 = function () {
-        var table = $('#UserList');
+        var table = $('#List');
         table.dataTable({
             "language": {
                 "aria": {

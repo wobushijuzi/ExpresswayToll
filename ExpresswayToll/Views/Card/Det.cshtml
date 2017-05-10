@@ -1,0 +1,22 @@
+﻿@model Model.t_Card
+<div class="modal-body">
+    <div class="col-md-4"></div>
+    <div class="">
+        <h3>
+            <p>
+                <span>编号：</span>
+                <span> @Model.Id </span>
+            </p>
+            <p>
+                <span>@Html.DisplayNameFor(c=>c.CardId)</span>
+                <span>@Model.CardId</span>
+            </p>
+        </h3>
+
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data- dismiss="modal">关闭</button>
+    @*<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Edit", "User", new { Id =@Model.Id })'">编辑</button>*@
+    <button type="submit" class="btn btn-primary" onclick="location.href ='@Url.Action("Del", "User", new { Id =@Model.Id })'">删除</button>
+</div>

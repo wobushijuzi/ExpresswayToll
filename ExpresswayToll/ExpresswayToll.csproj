@@ -157,6 +157,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
@@ -6084,9 +6085,11 @@
     <Content Include="Views\Login\Reg.cshtml" />
     <Content Include="Views\Menu\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Det.cshtml" />
+    <Content Include="Views\Card\Index.cshtml" />
+    <Content Include="Views\Card\Det.cshtml" />
+    <Content Include="Views\Card\Add.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
