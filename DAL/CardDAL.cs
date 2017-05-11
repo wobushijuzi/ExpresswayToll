@@ -24,16 +24,15 @@ namespace DAL
                 return false;
             }
         }
-        public bool Edit(t_Card card)
+        public bool Edit(string Id, string CarId, string CarType)
         {
             try
             {
-                var u = db.card.Find(card.Id);
-                u.CardId = card.CardId;
-                u.CarId = card.CarId;
-                u.CarType = card.CarType;
-                u.Inbound = card.Inbound;
-                u.InboundTime = card.InboundTime;
+                var u = db.card.Where(c=>c.CardId==Id).ToList().FirstOrDefault();                
+                u.CarId = CarId;
+                u.CarType = CarType;
+                u.Inbound = "山亭收费站";
+                u.InboundTime = DateTime.Now;
                 db.SaveChanges();
                 return true;
             }

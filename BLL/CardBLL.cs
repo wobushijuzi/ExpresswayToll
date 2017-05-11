@@ -29,9 +29,13 @@ namespace BLL
         {
             return cardDAL.Del(id);
         }
-        public bool Edit(t_Card card)
+        public bool Edit(string Id, string CarId, string CarType)
         {
-            return cardDAL.Edit(card);
+            //t_Card card = new t_Card()
+            //{
+
+            //};
+            return cardDAL.Edit(Id, CarId, CarType);
         }
         public t_Card Find(int id)
         {

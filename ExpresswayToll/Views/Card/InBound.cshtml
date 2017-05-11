@@ -1,0 +1,55 @@
+﻿@model Model.t_Card
+@{
+    ViewBag.Title = "InBound";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-equalizer font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase">入站 </span>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <form action="InBound" method="post" class="form-horizontal">
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">过路卡编号</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            <input type="text" class="form-control"  name="Id" placeholder="过路卡编号">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">车牌号</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            <input type="text" class="form-control" name="CarId" placeholder="车牌号">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">车辆类型</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            <input type="text" class="form-control" name="CarType" placeholder="车辆类型">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button type="submit" class="btn green">提交</button>
+                        @*<button type="button" class="btn default" onclick="location.href='@Url.Action("Index")'">取消</button>*@
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

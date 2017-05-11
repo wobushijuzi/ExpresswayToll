@@ -8,23 +8,7 @@
         <meta content="Preview page of Metronic Admin Theme #1 for statistics, charts, recent events and reports" name="description" />*@
     @*<meta content="" name="author" />*@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-    @*//"~/Content/assets/global/plugins/font-awesome/css/font-awesome.min.css",
-    //"~/Content/assets/global/plugins/simple-line-icons/simple-line-icons.min.css",
-    //"~/Content/assets/global/plugins/bootstrap/css/bootstrap.min.css",
-    //"~/Content/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css",
-
-    //"~/Content/assets/global/plugins/datatables/datatables.min.css",
-    //"~/Content/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css",
-
-    //"~/Content/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css",
-    //"~/Content/assets/global/plugins/morris/morris.css",
-    //"~/Content/assets/global/plugins/fullcalendar/fullcalendar.min.css",
-    //"~/Content/assets/global/plugins/jqvmap/jqvmap/jqvmap.css",
-    //"~/Content/assets/global/css/components.min.css",
-    //"~/Content/assets/global/css/plugins.min.css",
-    //"~/Content/assets/layouts/layout/css/layout.min.css",
-    //"~/Content/assets/layouts/layout/css/themes/darkblue.min.css",
-    //"~/Content/assets/layouts/layout/css/custom.min.css")); 全局CSS样式开始*@ 
+    
     @Styles.Render("~/Content/css/global")
     <!-- 全局CSS样式结束 -->
     <!-- 整体布局CSS样式开始 -->
@@ -40,7 +24,9 @@
         <div class="page-header navbar navbar-fixed-top">
             <div class="page-header-inner ">
                 <div class="page-logo">
-                    <img src="~/Content/assets/layouts/layout/img/logo.png" alt="logo" class="logo-default" />
+                    <img src="~/Content/logo.png" width="172px" height="28px" alt="logo" class="logo-default"  />
+                    @*<img src="~/Content/未标题-1.png"/>*@
+                    @*<img src="~/Content/assets/layouts/layout/img/logo.png" />*@
                     <div class="menu-toggler sidebar-toggler">
                         <span></span>
                     </div>
@@ -137,7 +123,7 @@
                         </li>
 
                         <li class="dropdown dropdown-quick-sidebar-toggler">
-                            <a href="#" class="dropdown-toggle">
+                            <a href="/Login/LogOut" class="dropdown-toggle">
                                 <i class="icon-logout"></i>
                             </a>
                         </li>

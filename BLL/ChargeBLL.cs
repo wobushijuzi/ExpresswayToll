@@ -5,23 +5,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace BLL
 {
     public class ChargeBLL
     {
         ChargeDAL chargedal = new ChargeDAL();
-        public bool Add(t_Charge charge)
+        UserDAL userdal = new UserDAL();
+        public bool Add(string CardId, string CarId, string CarType, String Inbound, DateTime InboundTime, double Charge, string Remark)
         {
-            //t_CarType cartype = new t_CarType()
-            //{
-            //    CardId = CardId,
-            //    CarId = "鲁D0000001",
-            //    CarType = "七座一下客车",
-            //    Inbound = "收费口1",
-            //    InboundTime = DateTime.Now,
-
-            //};
+            string person = HttpContext.Current.Request.Cookies["UserName"].Value;
+            t_User user = userdal.List().Where(c => c.UserName == person).FirstOrDefault();
+            t_Charge charge = new t_Charge()
+            {
+                CardId= CardId,
+                CarId =CarId,
+                CarType= CarType,
+                Inbound= Inbound,
+                InboundTime= InboundTime,
+                Outbound= "枣庄收费站",
+                OutboundTime= DateTime.Now,
+                Charge= Charge,
+                DutyPerson =user,
+                Remark = Remark
+            };
 
             return chargedal.Add(charge);
         }

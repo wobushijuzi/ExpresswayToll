@@ -34,9 +34,17 @@ namespace ExpresswayToll.Controllers
                 return Content("添加失败！！！");
             }
         }
-        public ActionResult Det(int id = 1)
+        public ActionResult Det(int id = 0)
         {
-            var result = cardBll.Find(id);
+            var result = new t_Card();
+            if (id == 0)
+            {
+                result = cardBll.List().FirstOrDefault();
+            }
+            else
+            {
+                result = cardBll.Find(id);
+            }
             return PartialView(result);
         }
         [HttpPost]
@@ -52,6 +60,27 @@ namespace ExpresswayToll.Controllers
                 return Content("删除失败");
             }
         }
-             
+        public ActionResult InBound()
+        {
+            Session["Result"] = "";
+            return View();
+        }
+        [HttpPost]
+        public ActionResult InBound(string Id,string CarId,string CarType)
+        {
+            bool result = cardBll.Edit(Id,CarId,CarType);
+            if (result)
+            {
+                Session["Result"] = "";
+            }
+            else
+            {
+
+                Session["Result"] = "添加失败";
+            }
+            return View();
+        }
+
+
     }
 }

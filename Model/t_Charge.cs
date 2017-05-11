@@ -34,6 +34,9 @@ namespace Model
         [DisplayName("出站时间")]
         public DateTime OutboundTime { get; set; }
         [Required]
+        [DisplayName("金额")]
+        public double Charge { get; set; }
+        [Required]
         [DisplayName("收费人")]
         public virtual t_User DutyPerson { get; set; }
         [DisplayName("备注")]

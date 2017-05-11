@@ -11,31 +11,41 @@ namespace ExpresswayToll.Controllers
     public class ChargeController : Controller
     {
         ChargeBLL chargeBll = new ChargeBLL();
+        CardBLL cardBLL = new CardBLL();
         public ActionResult Index()
         {
             var list = chargeBll.List();
             return View(list);
         }
-        public ActionResult Add()
+        public ActionResult Add(string cardId)
         {
-            return View();
+            var inbound = cardBLL.List().Where(c => c.CardId == cardId).ToList().FirstOrDefault();
+            return View(inbound);
         }
         [HttpPost]
-        public ActionResult Add(t_Charge charge)
+        public ActionResult Add(string CardId, string CarId,string CarType,String InBound,DateTime InBoundTime,double Charge,string Remark)
         {
-            bool result = chargeBll.Add(charge);
+            bool result = chargeBll.Add(CardId,CarId, CarType, InBound, InBoundTime, Charge, Remark);
             if (result)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("OutBound");
             }
             else
             {
                 return Content("添加失败！！！");
             }
         }
-        public ActionResult Det(int id = 1)
+        public ActionResult Det(int id = 0)
         {
-            var result = chargeBll.Find(id);
+            var result = new t_Charge();
+            if (id == 0)
+            {
+                result = chargeBll.List().FirstOrDefault();
+            }
+            else
+            {
+                result = chargeBll.Find(id);
+            }
             return PartialView(result);
         }
         [HttpPost]
@@ -50,6 +60,15 @@ namespace ExpresswayToll.Controllers
             {
                 return Content("删除失败");
             }
+        }
+        public ActionResult OutBound()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult OutBound(string cardId)
+        {
+            return RedirectToAction("Add",new { cardId=cardId});
         }
     }
 }

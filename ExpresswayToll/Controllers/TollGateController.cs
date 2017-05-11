@@ -11,6 +11,7 @@ namespace ExpresswayToll.Controllers
     public class TollGateController : Controller
     {
         TollGateBLL tollgateBll = new TollGateBLL();
+        RoadBLL roadbll = new RoadBLL();
         public ActionResult Index()
         {
             var list = tollgateBll.List();
@@ -21,8 +22,15 @@ namespace ExpresswayToll.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Add(t_TollGate tollgate)
+        public ActionResult Add(string TollGate,string Loction,int Count,string RoadName)
         {
+            t_TollGate tollgate = new t_TollGate()
+            {
+                TollGate=TollGate,
+                Loction=Loction,
+                Count=Count,
+                road=roadbll.List().Where(c=>c.RoadName==RoadName).ToList().FirstOrDefault()
+            };
             bool result = tollgateBll.Add(tollgate);
             if (result)
             {
@@ -33,9 +41,17 @@ namespace ExpresswayToll.Controllers
                 return Content("添加失败！！！");
             }
         }
-        public ActionResult Det(int id = 1)
+        public ActionResult Det(int id = 0)
         {
-            var result = tollgateBll.Find(id);
+            var result = new t_TollGate();
+            if (id==0)
+            {
+                result = tollgateBll.List().FirstOrDefault();
+            }
+            else
+            {
+                result = tollgateBll.Find(id);
+            }
             return PartialView(result);
         }
         [HttpPost]

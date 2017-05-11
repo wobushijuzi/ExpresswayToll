@@ -77,6 +77,10 @@ namespace ExpresswayToll.Controllers
             Session["ValidateCode"] = code;
             return File(bytes, @"image/jpeg");
         }
+        public ActionResult LogOut()
+        {
+            return RedirectToAction("Index");
+        }
         private List<string> DropList()
         {
             return new List<string> { "男", "女" };

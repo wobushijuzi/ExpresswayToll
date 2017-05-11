@@ -33,9 +33,17 @@ namespace ExpresswayToll.Controllers
                 return Content("添加失败！！！");
             }
         }
-        public ActionResult Det(int id = 1)
+        public ActionResult Det(int id = 0)
         {
-            var result = chargestandardBll.Find(id);
+            var result = new t_ChargeStandard();
+            if (id == 0)
+            {
+                result = chargestandardBll.List().FirstOrDefault();
+            }
+            else
+            {
+                result = chargestandardBll.Find(id);
+            }
             return PartialView(result);
         }
         [HttpPost]

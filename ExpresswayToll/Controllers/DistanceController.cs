@@ -39,9 +39,17 @@ namespace ExpresswayToll.Controllers
                 return Content("添加失败！！！");
             }
         }
-        public ActionResult Det(int id = 1)
+        public ActionResult Det(int id = 0)
         {
-            var result = diatanceBll.Find(id);
+            var result = new t_Distance();
+            if (id == 0)
+            {
+                result = diatanceBll.List().FirstOrDefault();
+            }
+            else
+            {
+                result = diatanceBll.Find(id);
+            }
             return PartialView(result);
         }
         [HttpPost]

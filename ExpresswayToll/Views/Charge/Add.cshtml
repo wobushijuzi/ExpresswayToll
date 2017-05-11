@@ -1,0 +1,101 @@
+﻿@model Model.t_Card
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-equalizer font-red-sunglo"></i>
+            <span class="caption-subject font-red-sunglo bold uppercase">入站信息 </span>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <form action="Add" method="post" class="form-horizontal">
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">过路卡编号</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            @Html.TextBoxFor(c => c.CardId, new { @class = "form-control", placeholder = "过路卡编号", disabled = "disabled" })
+                            @Html.HiddenFor(c => c.CardId)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">车牌号</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            @Html.TextBoxFor(c => c.CarId, new { @class = "form-control", placeholder = "车牌号", disabled = "disabled" })
+                            @Html.HiddenFor(c=>c.CarId)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">车辆类型</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            @Html.TextBoxFor(c => c.CarType, new { @class = "form-control", placeholder = "车辆类型", disabled = "disabled" })
+                            @Html.HiddenFor(c => c.CarType)
+                            @*<input type="text" class="form-control" name="End" placeholder="结束点">*@
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">入站口</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            @Html.TextBoxFor(c => c.Inbound, new { @class = "form-control", placeholder = "入站口", disabled = "disabled" })
+                            @Html.HiddenFor(c => c.Inbound)
+                            @*<input type="text" class="form-control" name="Distance" placeholder="距离">*@
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label">入站时间</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            @*@Html.TextBoxFor(c => c.InboundTime.ToShortDateString(), new { @class = "form-control", placeholder = "所在道路",disabled="disabled" })*@
+                            @Html.HiddenFor(c => c.InboundTime)
+                            <input type="text" class="form-control" name="InboundTime" value="@Model.InboundTime.ToShortDateString()" disabled="disabled" placeholder="入站时间">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">应收金额</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            <input type="text" class="form-control" value="200" disabled="disabled" placeholder="入站时间">
+                            <input type="hidden" name="Charge" value="200" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">备注</label>
+                    <div class="col-md-4">
+                        <div class="input-icon">
+                            <i class="fa fa-bell-o"></i>
+                            <input type="text" class="form-control" name="Remark" placeholder="备注">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button type="submit" class="btn green">提交</button>
+                        <button type="button" class="btn default" onclick="location.href='@Url.Action("Index")'">取消</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

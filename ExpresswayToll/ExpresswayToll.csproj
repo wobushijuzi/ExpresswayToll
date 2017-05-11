@@ -5518,6 +5518,7 @@
     <Content Include="Content\assets\pages\scripts\ui-tree.min.js" />
     <Content Include="Content\assets\pages\scripts\widgets.js" />
     <Content Include="Content\assets\pages\scripts\widgets.min.js" />
+    <Content Include="Content\logo.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
     <Content Include="CSS\animate.css" />
@@ -6112,6 +6113,13 @@
     <Content Include="Views\Road\Index.cshtml" />
     <Content Include="Views\Road\Add.cshtml" />
     <Content Include="Views\Road\Det.cshtml" />
+    <Content Include="Views\TollGate\Index.cshtml" />
+    <Content Include="Views\TollGate\Add.cshtml" />
+    <Content Include="Views\TollGate\Det.cshtml" />
+    <Content Include="Views\Charge\Index.cshtml" />
+    <Content Include="Views\Charge\Add.cshtml" />
+    <Content Include="Views\Card\InBound.cshtml" />
+    <Content Include="Views\Charge\OutBound.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -6129,11 +6137,9 @@
     <Folder Include="Content\assets\apps\img\" />
     <Folder Include="Content\assets\global\plugins\angularjs\plugins\angular-file-upload\uploads\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Charge\" />
     <Folder Include="Views\Duty\" />
     <Folder Include="Views\Illegal\" />
     <Folder Include="Views\News\" />
-    <Folder Include="Views\TollGate\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
