@@ -93,12 +93,24 @@ namespace ExpresswayToll.Controllers
         }
         public ActionResult Edit(int id)
         {
+            List<string> able = new List<string>() {
+                "在职","停用"
+            };
+            SelectList Able = new SelectList(able, "List");
+            ViewBag.AbleList = Able.AsEnumerable();
+            List<string> Gender = new List<string>() {
+                "男","女"
+            };
+            SelectList genderlist = new SelectList(Gender, "List");
+            ViewBag.Gender = genderlist.AsEnumerable();
             var user = userbll.Find(id);
             return View(user);
         }
+        
         [HttpPost]
-        public ActionResult Edit(int id, string UserName, string Password, DateTime Birthday, string Gender, string Phone, string Emain, string QQ,int Disadle)
+        public ActionResult Edit(int id, string UserName, string Password, DateTime Birthday, string Gender, string Phone, string Emain, string QQ,string Disadle, DateTime CreateTime,int RoleId)
         {
+            
             bool IsEdit = userbll.Edit(new t_User
             {
                 id = id,
@@ -109,10 +121,10 @@ namespace ExpresswayToll.Controllers
                 Phone = Phone,
                 Emain = Emain,
                 QQ = QQ,
-                Disadle = Disadle,
+                Disadle = (Disadle=="在职"?0:1),
                 IsDel = 0,
                 
-            });
+            },RoleId);
             if (IsEdit)
             {
                 return RedirectToAction("Index");

@@ -1,0 +1,45 @@
+﻿@model Model.t_User
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    @Styles.Render("~/Content/css/global")
+    @Styles.Render("~/Content/login")
+    @*@Styles.Render("~/Content/css/datapicker")*@
+</head>
+<body class="login">
+    <div class="logo">
+        <h1 style="color:white">高速公路收费系统</h1>
+    </div>
+    <div class="content">
+        <form class="login-form text-center" action="GetTollGate" method="post">
+            <h3 class="form-title font-green">选择您所在的收费站：</h3>
+            <div class="form-group">
+                <div class="input-icon">
+                    @Html.DropDownList("TollGate", ViewBag.TollGate as IEnumerable<SelectListItem>, "非收费站", new { @class = "form-control form-control-solid placeholder-no-fix" })
+                </div>
+            </div>
+            <div class="form-actions text-right">
+                <button type="submit" class="btn green uppercase">确定</button>
+            </div>
+            
+        </form>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/platform/global")
+    @Scripts.Render("~/bundles/platform/layout")
+    @Scripts.Render("~/bundles/platform/login")
+    @*@Scripts.Render("~/bundles/platform/datapicker")*@
+    <script src="~/Content/assets/pages/scripts/login.js" charset="gbk"></script>
+</body>
+</html>
+                                

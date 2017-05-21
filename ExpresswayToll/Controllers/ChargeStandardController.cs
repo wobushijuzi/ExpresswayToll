@@ -11,6 +11,7 @@ namespace ExpresswayToll.Controllers
     public class ChargeStandardController : Controller
     {
         ChargeStandardBLL chargestandardBll = new ChargeStandardBLL();
+        CarTypeBLL cartype = new CarTypeBLL();
         public ActionResult Index()
         {
             var list = chargestandardBll.List();
@@ -18,6 +19,14 @@ namespace ExpresswayToll.Controllers
         }
         public ActionResult Add()
         {
+            var li = cartype.List();
+            var CarType = new List<string>();
+            foreach (var item in li)
+            {
+                CarType.Add(item.CarType);
+            }
+            SelectList List = new SelectList(CarType, "CarType");
+            ViewBag.CarType = List.AsEnumerable();
             return View();
         }
         [HttpPost]

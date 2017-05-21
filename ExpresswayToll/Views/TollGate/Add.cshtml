@@ -28,7 +28,8 @@
                     <div class="col-md-4">
                         <div class="input-icon">
                             <i class="fa fa-bell-o"></i>
-                            @Html.TextBoxFor(c => c.Loction, new { @class = "form-control", placeholder = "所属地" })
+                            @Html.DropDownList("Loction", ViewBag.List as IEnumerable<SelectListItem>, new { @class = "form-control placeholder-no-fix" })
+                            @*@Html.TextBoxFor(c => c.Loction, new { @class = "form-control", placeholder = "所属地" })*@
                             @*<input type="text" class="form-control" name="End" placeholder="结束点">*@
                         </div>
                     </div>
@@ -38,7 +39,8 @@
                     <div class="col-md-4">
                         <div class="input-icon">
                             <i class="fa fa-bell-o"></i>
-                            @Html.TextBoxFor(c => c.Count, new { @class = "form-control", placeholder = "收费口数量" })
+                            @Html.DropDownList("Count", ViewBag.CountList as IEnumerable<SelectListItem>, new { @class = "form-control placeholder-no-fix" })
+                            @*@Html.TextBoxFor(c => c.Count, new { @class = "form-control", placeholder = "收费口数量" })*@
                             @*<input type="text" class="form-control" name="Distance" placeholder="距离">*@
                         </div>
                     </div>
@@ -49,8 +51,9 @@
                     <div class="col-md-4">
                         <div class="input-icon">
                             <i class="fa fa-bell-o"></i>
+                            @Html.DropDownList("RoadName", ViewBag.RoadList as IEnumerable<SelectListItem>, new { @class = "form-control placeholder-no-fix" })
                             @*@Html.TextBoxFor(c => c.road.RoadName, new { @class = "form-control", placeholder = "所在道路" })*@
-                            <input type="text" class="form-control" name="RoadName" placeholder="所在道路">
+                            @*<input type="text" class="form-control" name="RoadName" placeholder="所在道路">*@
                         </div>
                     </div>
                 </div>

@@ -48,7 +48,7 @@ namespace DAL
                 return false;
             }
         }
-        public bool Edit(t_User user)
+        public bool Edit(t_User user,int RoleId)
         {
             try
             {
@@ -62,6 +62,8 @@ namespace DAL
                 u.QQ = user.QQ;
                 u.Disadle = user.Disadle;
                 u.IsDel = user.IsDel;
+                var r = db.utr.Where(c=>c.user.id==user.id).FirstOrDefault();
+                r.role = db.role.Find(RoleId);
                 db.SaveChanges();
                 return true;
             }

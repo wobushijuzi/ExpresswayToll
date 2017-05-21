@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Golbal;
+using System.Text;
 
 namespace ExpresswayToll.Controllers
 {
@@ -17,9 +19,16 @@ namespace ExpresswayToll.Controllers
             var list = chargeBll.List();
             return View(list);
         }
-        public ActionResult Add(string cardId)
+        public ActionResult Add(string cardId,double weight)
         {
-            var inbound = cardBLL.List().Where(c => c.CardId == cardId).ToList().FirstOrDefault();
+            string outbound = HttpUtility.UrlDecode(Request.Cookies["TollGate"].Value, Encoding.GetEncoding("utf-8"));
+            var inbound = cardBLL.List().Where(c => c.CardId == cardId).ToList().FirstOrDefault();            
+            double pay = new Charge().GetPay(inbound.CarType, weight, inbound.Inbound, outbound);
+            if (inbound.CarType=="货车"&&weight>=90)
+            {
+                pay = pay * 6;
+            }
+            ViewBag.pay = pay;
             return View(inbound);
         }
         [HttpPost]
@@ -68,7 +77,7 @@ namespace ExpresswayToll.Controllers
         [HttpPost]
         public ActionResult OutBound(string cardId)
         {
-            return RedirectToAction("Add",new { cardId=cardId});
+            return RedirectToAction("Add",new { cardId=cardId,weight=20});
         }
     }
 }

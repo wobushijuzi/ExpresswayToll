@@ -9,6 +9,11 @@ namespace Golbal
 {
     public class Encrypt
     {
+        /// <summary>
+        /// 密码加密
+        /// </summary>
+        /// <param name="Express">明文密码</param>
+        /// <returns></returns>
         public static byte[] Encryption(string Express)
         {
             byte[] result = Encoding.Default.GetBytes(Express);

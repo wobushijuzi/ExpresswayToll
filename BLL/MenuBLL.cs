@@ -15,5 +15,10 @@ namespace BLL
         {
             return menuDAL.List();
         }
+
+        public List<t_Menu> GetMenu()
+        {
+            return menuDAL.GetMenu();
+        }
     }
 }

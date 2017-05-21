@@ -11,6 +11,7 @@ namespace ExpresswayToll.Controllers
     public class DistanceController : Controller
     {
         DistanceBLL diatanceBll = new DistanceBLL();
+        TollGateBLL tollgatebll = new TollGateBLL();
         public ActionResult Index()
         {
             var list = diatanceBll.List();
@@ -18,6 +19,14 @@ namespace ExpresswayToll.Controllers
         }
         public ActionResult Add()
         {
+            var li = tollgatebll.List();
+            var tollgate = new List<string>();
+            foreach (var item in li)
+            {
+                tollgate.Add(item.TollGate);
+            }
+            SelectList List = new SelectList(tollgate, "tollgate");
+            ViewBag.TollGate = List.AsEnumerable();
             return View();
         }
         [HttpPost]

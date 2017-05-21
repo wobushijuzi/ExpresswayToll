@@ -19,7 +19,8 @@
                     <div class="col-md-4">
                         <div class="input-icon">
                             <i class="fa fa-bell-o"></i>
-                            @Html.TextBoxFor(c=>c.Start,new { @class="form-control", placeholder = "开始点" })
+                            @Html.DropDownList("Start", ViewBag.TollGate as IEnumerable<SelectListItem>, new { @class = "form-control placeholder-no-fix" })
+                            @*@Html.TextBoxFor(c=>c.Start,new { @class="form-control", placeholder = "开始点" })*@
                             @*<input type="text" class="form-control" name="Start" placeholder="开始点">*@
                         </div>
                     </div>
@@ -29,7 +30,8 @@
                     <div class="col-md-4">
                         <div class="input-icon">
                             <i class="fa fa-bell-o"></i>
-                            @Html.TextBoxFor(c => c.End, new { @class = "form-control", placeholder = "结束点" })
+                            @Html.DropDownList("End", ViewBag.TollGate as IEnumerable<SelectListItem>, new { @class = "form-control placeholder-no-fix" })
+                            @*@Html.TextBoxFor(c => c.End, new { @class = "form-control", placeholder = "结束点" })*@
                             @*<input type="text" class="form-control" name="End" placeholder="结束点">*@
                         </div>
                     </div>

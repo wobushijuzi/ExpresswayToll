@@ -23,7 +23,11 @@ namespace Golbal
         private int validataCodeLength = 4;
         private int validataCodeSize = 0x12;
         private string validateCodeFont = "Arial";
-
+        /// <summary>
+        /// 生成验证码图片
+        /// </summary>
+        /// <param name="validataCode">验证码值</param>
+        /// <returns></returns>
         public override byte[] CreateImage(out string validataCode)
         {
             Bitmap bitmap;

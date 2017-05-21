@@ -37,7 +37,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-lg-9">
-                        <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="验 证 码" name="ValidateCode" />
+                        <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="验 证 码" name="ValidateCode" />
                     </div>
                     <img style="cursor: pointer; vertical-align:middle" src="@Url.Action("VerifyImage", "Login")" id="VerifyImage" title="看不清？点击换一个" onclick="javascript:document.getElementById('VerifyImage').src='@Url.Action("VerifyImage", "Login")?r='+Math.random();return false;">
                 </div>
@@ -71,31 +71,5 @@
     @Scripts.Render("~/bundles/platform/login")
     @*@Scripts.Render("~/bundles/platform/datapicker")*@
     <script src="~/Content/assets/pages/scripts/login.js" charset="gbk"></script>
-
-    @*<script type="text/javascript">
-            $('.form_date').datetimepicker({
-                language:  'zh-CN',
-                weekStart: 1,
-                todayBtn: 1,
-                autoclose: 0,
-                todayHighlight: 1,
-                startView: 2,
-                minView: 2,
-                forceParse: 0
-            });
-        </script>
-        <script>
-            function rep() {
-                var password = document.getElementById("Password").value;
-                var reppassword = document.getElementById("repassword").value;
-                if (password != reppassword) {
-                    document.getElementById("alert").style.display = "block";
-                    document.getElementById("Password").focus();
-                } else {
-
-                    document.getElementById("alert").style.display = "none";
-                }
-            }
-        </script>*@
 </body>
 </html>

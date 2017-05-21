@@ -19,6 +19,24 @@ namespace ExpresswayToll.Controllers
         }
         public ActionResult Add()
         {
+            List<string> loc = new List<string>() {
+                "市中区","滕州市","山亭区","台儿庄区"
+            };
+            SelectList list = new SelectList(loc, "List");
+            ViewBag.List = list.AsEnumerable();
+            List<string> count = new List<string>() {
+                "2","4","6","8"
+            };
+            SelectList countlist = new SelectList(count, "CountList");
+            ViewBag.CountList = countlist.AsEnumerable();
+            var li = roadbll.List();
+            var RoadName = new List<string>();
+            foreach (var item in li)
+            {
+                RoadName.Add(item.RoadName);
+            }
+            SelectList List = new SelectList(RoadName, "roadlist");
+            ViewBag.RoadList = List.AsEnumerable();
             return View();
         }
         [HttpPost]

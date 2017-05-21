@@ -19,8 +19,8 @@
                     <div class="col-md-4">
                         <div class="input-icon">
                             <i class="fa fa-bell-o"></i>
-                            @*@Html.TextBoxFor(c=>c.CarType)*@
-                            <input type="text" class="form-control" name="CarType" placeholder="车辆类型">
+                            @Html.DropDownList("CarType", ViewBag.CarType as IEnumerable<SelectListItem>, new { @class = "form-control placeholder-no-fix" })
+                            @*<input type="text" class="form-control" name="CarType" placeholder="车辆类型">*@
                         </div>
                     </div>
                 </div>

@@ -36,10 +36,10 @@
                 </a>
                 <div class="top-menu">
                     <ul class="nav navbar-nav pull-right">
-                        <li class="dropdown dropdown-user">
-                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <span class="username username-hide-on-mobile"> 欢迎您：@HttpUtility.UrlDecode(Request.Cookies["UserName"].Value, System.Text.Encoding.GetEncoding("UTF-8")) </span>
-                            </a>
+                        <li class="dropdown dropdown-user" style="color:white">
+                            <br />
+                                <span class="username username-hide-on-mobile"> 欢迎您：@(Request.Cookies["UserName"] != null ? HttpUtility.UrlDecode(Request.Cookies["UserName"].Value, System.Text.Encoding.GetEncoding("UTF-8")) : "") </span>||
+                                <span class="username username-hide-on-mobile"> 您所在的收费站为：<a href="/Home/GetTollGate" >@(Request.Cookies["TollGate"].Value!= "" ? HttpUtility.UrlDecode(Request.Cookies["TollGate"].Value, System.Text.Encoding.GetEncoding("UTF-8")) : "非收费站")</a> </span>
 
                         </li>
                         <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
@@ -198,9 +198,6 @@
     @Scripts.Render("~/bundles/platform/table")
     <script src="~/Content/assets/pages/scripts/table-datatables-managed.js" charset="gbk"></script>
 
-    @*<script src="~/Content/assets/global/scripts/datatable.js" type="text/javascript"></script>
-    <script src="~/Content/assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
-    <script src="~/Content/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
-    <script src="~/Content/assets/pages/scripts/table-datatables-managed.js" charset="gbk"></script>*@
+    
 </body>
 </html>

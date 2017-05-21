@@ -24,8 +24,8 @@
                     <th> 生日 </th>
                     <th> 联系方式 </th>
                     <th> QQ </th>
+                    <th>员工状态</th>
                     <th>操作</th>
-
                 </tr>
             </thead> 
             <tbody>
@@ -38,6 +38,7 @@
                         <td>@item.Birthday.ToShortDateString()</td>
                         <td>@item.Phone</td>
                         <td>@item.QQ</td>
+                        <td>@(item.Disadle==0?"在职":"停用")</td>
                         <td><input type="button" value="编辑" class="btn green" onclick="location.href='@Url.Action("Edit", "User", new { id = item.id })'" />
                             <input type="button" value="详情" class="btn green" data-toggle="modal" data-target="#Det" onclick="Det(@item.id)" />
                             <input type="button" value="删除" class="btn green" data-toggle="modal" data-target="#myModal" onclick="Del(@item.id,'@item.UserName')"/></td>

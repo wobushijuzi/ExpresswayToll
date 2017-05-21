@@ -16,7 +16,7 @@ namespace BLL
         {
            
             int result = userinfo.Login(UserName, Password);
-            if (result == 1)
+            if (result > 0)
             {
                 return true;
             }
@@ -26,9 +26,9 @@ namespace BLL
             }
         }
         #region 修改
-        public bool Edit(t_User user)
+        public bool Edit(t_User user,int RoleId)
         {
-            return userinfo.Edit(user);
+            return userinfo.Edit(user,RoleId);
         }
         #endregion
         #region 删除

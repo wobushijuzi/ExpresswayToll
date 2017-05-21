@@ -6076,6 +6076,7 @@
     <Content Include="Content\assets\layouts\layout7\img\Thumbs.db" />
     <Content Include="Content\assets\pages\media\blog\Thumbs.db" />
     <Content Include="Content\assets\pages\media\pages\Thumbs.db" />
+    <None Include="Properties\PublishProfiles\Design.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -6120,6 +6121,7 @@
     <Content Include="Views\Charge\Add.cshtml" />
     <Content Include="Views\Card\InBound.cshtml" />
     <Content Include="Views\Charge\OutBound.cshtml" />
+    <Content Include="Views\Home\GetTollGate.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
